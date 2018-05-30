@@ -37,7 +37,6 @@ angular.module('nimsys').controller('LoginCtrl', ['$scope','loginFactory','$http
   
   
 	$scope.init = function () {
-		$scope.user.username = "tester@aidimme.es";
 	};
 	
 	
