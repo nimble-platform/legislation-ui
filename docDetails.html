@@ -1,0 +1,204 @@
+
+<script>
+	var dateFormat = "dd-mm-yyyy";
+</script>
+
+<form class="form-horizontal" data-ng-init="init()" id="docDetails">
+
+	<div id="alert-error" class="alert alert-danger space-before collapse" i18n="" role="alert">{{msg}}</div>
+	<div id="alert-success" class="alert alert-success space-before collapse" i18n="" role="alert">{{msg}}</div>
+	
+	<hr/>
+
+	<div class="card hide bg-light text-dark mb-3" id="cardDocumentDetails">
+		<div class="card-block">
+			<h5 class="card-title" data-i18n="search.docdetails">DOCUMENT DETAILS</h5>
+
+			<div class="form-group row">
+		  		<div class="col-12">
+		  			<div class="alert alert-warning space-before" role="alert"><span data-i18n="search.selecteddoc">Selected document:</span> {{selectedDocumentId}}</div>
+		  		</div>
+			</div>
+			<div class="form-group row">
+		  		<label for="regulationType" class="col-2 col-form-label" data-i18n="search.code">Code</label>
+		  		<div class="col-10">
+		  			<input readonly type="text" class="form-control" ng-model="selectedDocument.mainAttr.code">
+		  		</div>
+			</div>
+			<div class="form-group row">
+		  		<label for="regulationType" class="col-2 col-form-label" data-i18n="search.title">Title</label>
+		  		<div class="col-10">
+		  			<input readonly type="text" class="form-control" ng-model="selectedDocument.mainAttr.title" title="{{selectedDocument.mainAttr.title}}">
+		  		</div>
+			</div>
+			<div class="form-group row">
+		  		<label for="regulationType" class="col-2 col-form-label" data-i18n="search.description">Description</label>
+		  		<div class="col-10">
+<!-- 		  			<input readonly type="text" class="form-control" ng-model="selectedDocument.mainAttr.description" title="{{selectedDocument.mainAttr.description}}"> -->
+					<textarea readonly class="form-control" ng-model="selectedDocument.mainAttr.description" rows="2">{{selectedDocument.mainAttr.description}}</textarea>
+		  		</div>
+			</div>
+			<div class="form-group row">
+		  		<label for="regulationType" class="col-2 col-form-label" data-i18n="search.dateentry">Date Entry</label>
+		  		<div class="col-10">
+		  			<input readonly type="text" class="form-control" ng-model="selectedDocument.mainAttr.dateEntry">
+		  		</div>
+			</div>
+<!-- 			<div class="form-group row"> -->
+<!-- 		  		<label for="regulationType" class="col-2 col-form-label" data-i18n="search.regulation.dateupdate">Date Update</label> -->
+<!-- 		  		<div class="col-10"> -->
+<!-- 		  			<input readonly type="text" class="form-control" ng-model="selectedDocument.mainAttr.dateUpdate"> -->
+<!-- 		  		</div> -->
+<!-- 			</div> -->
+			
+			<!-- DETAILS REGULATION -->
+			<div id="detailsChunk0" class="d-none">
+				<div class="form-group row">
+			  		<label for="regulationType" class="col-2 col-form-label" data-i18n="search.regulation.regulationtype">Regulation type</label>
+			  		<div class="col-10">
+			  			<input readonly type="text" class="form-control" ng-model="selectedDocument.specAttr.regulationType">
+			  		</div>
+				</div>
+				<div class="form-group row">
+			  		<label for="regulationNumber" class="col-2 col-form-label" data-i18n="search.regulation.regulationnumber">Regulation number</label>
+			  		<div class="col-10">
+			  			<input readonly type="text" class="form-control" ng-model="selectedDocument.specAttr.regulationNumber">
+			  		</div>
+				</div>
+				<div class="form-group row">
+			  		<label for="technicalCommittee" class="col-2 col-form-label icon" data-i18n="search.regulation.technicalcommittee" data-toggle="collapse" data-target="#collapseTechnicalCommittee">Technical Committee</label>
+			  		<div class="col-10">
+			  			<input readonly type="text" class="form-control" ng-model="selectedDocument.specAttr.technicalCommittee">
+			  		</div>
+				</div>
+				<div class="collapse" id="collapseTechnicalCommittee">
+					<div class="table-responsive">
+						<table class="table table-striped">
+					    	<tbody>
+					    		<tr>
+      								<th scope="row">CTN</th>
+      								<td>Comité técnico de normalización</td>
+    							</tr>
+    							<tr>
+							      	<th scope="row">CEN</th>
+							      	<td>European Committee for Standardization</td>
+							    </tr>
+  							</tbody>
+					  	</table>
+					</div>
+				</div>
+				<div class="form-group row">
+			  		<label for="editingDate" class="col-2 col-form-label" data-i18n="search.regulation.editingdate">Editing Date</label>
+			  		<div class="col-10">
+			  			<input readonly type="text" class="form-control" ng-model="selectedDocument.specAttr.editingDate">
+			  		</div>
+				</div>
+				<div class="form-group row">
+			  		<label for="numOfPages" class="col-2 col-form-label" data-i18n="search.regulation.numofpages">Num. of Pages</label>
+			  		<div class="col-10">
+			  			<input readonly type="text" class="form-control" ng-model="selectedDocument.specAttr.numOfPages">
+			  		</div>
+				</div>
+				<div class="form-group row">
+			  		<label for="language" class="col-2 col-form-label" data-i18n="search.regulation.language">Language</label>
+			  		<div class="col-10">
+			  			<input readonly type="text" class="form-control" ng-model="selectedDocument.specAttr.language">
+			  		</div>
+				</div>
+<!-- 				<div class="form-group row"> -->
+<!-- 			  		<label for="country" class="col-2 col-form-label" data-i18n="search.country">Country</label> -->
+<!-- 			  		<div class="col-10"> -->
+<!-- 			  			<input readonly type="text" class="form-control" ng-model="selectedDocument.specAttr.country"> -->
+<!-- 			  		</div> -->
+<!-- 				</div> -->
+				<div class="form-group row">
+			  		<label for="identifyEN" class="col-2 col-form-label" data-i18n="search.regulation.identifyen">Identify EN</label>
+			  		<div class="col-10">
+			  			<input readonly type="text" class="form-control" ng-model="selectedDocument.specAttr.identifyEN">
+			  		</div>
+				</div>
+			</div>
+			
+			
+			<!-- DETAILS LEGISLATION -->
+			<div id="detailsChunk1" class="d-none">
+				<div class="form-group row">
+			  		<label for="legalAssessment" class="col-2 col-form-label" data-i18n="search.legislation.legalassessment">Legal assessment</label>
+			  		<div class="col-10">
+			  			<input readonly type="text" class="form-control" ng-model="selectedDocument.specAttr.legalAssessment">
+			  		</div>
+				</div>
+				<div class="form-group row">
+			  		<label for="link" class="col-2 col-form-label" data-i18n="search.link">Link</label>
+			  		<div class="col-10">
+<!-- 			  			<input readonly type="text" class="form-control" ng-model="selectedDocument.specAttr.link"> -->
+						<a href="{{selectedDocument.specAttr.link}}" target="_blank">{{selectedDocument.specAttr.link}}</a>
+			  		</div>
+				</div>
+				<div class="form-group row">
+			  		<label for="country" class="col-2 col-form-label" data-i18n="search.country">Country</label>
+			  		<div class="col-10">
+			  			<input readonly type="text" class="form-control" ng-model="selectedDocument.specAttr.country">
+			  		</div>
+				</div>
+				<div class="form-group row">
+			  		<label for="publicationDate" class="col-2 col-form-label" data-i18n="search.legislation.publicationdate">Publication date</label>
+			  		<div class="col-10">
+			  			<input readonly type="text" class="form-control" ng-model="selectedDocument.specAttr.publicationDate">
+			  		</div>
+				</div>
+				<div class="form-group row">
+			  		<label for="documentOrigin" class="col-2 col-form-label" data-i18n="search.legislation.originofdocument">Origin of document</label>
+			  		<div class="col-10">
+			  			<input readonly type="text" class="form-control" ng-model="selectedDocument.specAttr.documentOrigin">
+			  		</div>
+				</div>
+			</div>
+			
+			
+			<!-- DETAILS PATENT -->
+<!-- 			<div id="detailsChunk2" class="d-none"> -->
+<!-- 				<div class="form-group row"> -->
+<!-- 			  		<label for="date" class="col-2 col-form-label">Date</label> -->
+<!-- 			  		<div class="col-10"> -->
+<!-- 			  			<input readonly type="text" class="form-control" ng-model="selectedDocument.specAttr.date"> -->
+<!-- 			  		</div> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+			
+			
+			<!-- DETAILS REPORT -->
+			<div id="detailsChunk3" class="d-none">
+				<div class="form-group row">
+			  		<label for="authors" class="col-2 col-form-label" data-i18n="search.sectorialreport.authors">Authors</label>
+			  		<div class="col-10">
+			  			<input readonly type="text" class="form-control" ng-model="selectedDocument.specAttr.authors">
+			  		</div>
+				</div>
+				<div class="form-group row">
+			  		<label for="dateOfDocument" class="col-2 col-form-label" data-i18n="search.sectorialreport.dateofdocument">Date Of Document</label>
+			  		<div class="col-10">
+			  			<input readonly type="text" class="form-control" ng-model="selectedDocument.specAttr.dateOfDocument">
+			  		</div>
+				</div>
+				<div class="form-group row">
+			  		<label for="country" class="col-2 col-form-label" data-i18n="search.country">Country</label>
+			  		<div class="col-10">
+			  			<input readonly type="text" class="form-control" ng-model="selectedDocument.specAttr.country">
+			  		</div>
+				</div>
+			</div>
+			
+			<div class="form-group row">
+		  		<label for="descriptors" class="col-2 col-form-label" data-i18n="search.descriptors">Descriptors</label>
+		  		<div class="col-10">
+		  			<input readonly type="text" class="form-control" ng-model="selectedDocument.specAttr.descriptors">
+		  		</div>
+			</div>
+			
+		</div>
+
+		<hr/>
+	</div>
+
+</form>

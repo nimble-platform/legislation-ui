@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>AIDIMME Normative and Legislation System</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="icon" type="image/x-icon" href="img/favicon.ico">		
+		
+		<!-- Bootstrap --> 
+ 		<script type="text/javascript" src="bower_components/moment/min/moment.min.js"></script>
+		<script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+ 		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" /> 
+
+		<link rel="stylesheet" href="css/styles.css">
+
+		<script>
+			var locale = navigator.language || navigator.userLanguage;
+			if (locale.length > 2)
+				locale = locale.substr(0,2);
+			document.locale = locale;
+		</script>
+	<style>
+		#footer[_ngcontent-igy-19] {
+			font-size: 0.8rem;
+			text-align: center;
+			padding-top: 0.5rem;
+			margin-top: 1rem;
+			border-top: 1px solid #aaa;
+			color: #aaa;}
+	</style>
+
+</head>
+
+<body>
+
+<div class="container">
+	<nimble-app>
+	<nav class="navbar navbar-toggleable-md navbar-inverse bg-faded nimble-bg space-after">
+		<button aria-controls="navbarNavAltMarkup" class="navbar-toggler navbar-toggler-right" type="button" aria-expanded="false">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<a class="navbar-brand active" routerlink="/" routerlinkactive="active" ng-reflect-router-link="/" ng-reflect-router-link-active="active" ng-reflect-href="#/" href="#/">
+		<img alt="" class="d-inline-block align-top" id="nav-logo" src="img/nimble_logo_white.png" height="30">
+		</a>
+
+		<div class="navbar-collapse collapse" id="navbarNavAltMarkup" ng-reflect-collapsed="true" aria-expanded="false">
+			<ul class="nav navbar-nav mr-auto">
+				<li class="nav-item active" routerlinkactive="active" ng-reflect-router-link-active="active">
+					<a class="nav-link" routerlink="/login" ng-reflect-router-link="/login" ng-reflect-href="#/login" href="#/login"><img class="inline-icon" src="img/login_white.png">
+					<span>Login</span>
+					</a>
+				</li>
+				<li class="nav-item" routerlinkactive="active" ng-reflect-router-link-active="active">
+				<a class="nav-link" routerlink="/registration" ng-reflect-router-link="/registration" ng-reflect-href="#/registration" href="#/registration">
+				<img class="inline-icon" src="img/opm_white.png">
+					<span>OptionM</span>
+				</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<nimble-section>
+		<h3>Title of section</h3>
+		<span>Content of section</span>
+	</nimble-section>
+
+	<div _ngcontent-igy-19="" id="footer">
+		<img src="img/eu_flag.png"> This project has received funding from the European Union's Horizon 2020 
+	research and innovation programme under grant agreement No 723810
+	</div>
+
+	</nimble-app>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>AIDIMME Regulation and Legislation System</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="icon" type="image/x-icon" href="img/favicon.ico">
+		
+		<!-- Jquery -->
+ 		<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+		
+		<!-- Bootstrap -->
+		
+  		<script type="text/javascript" src="bower_components/moment/min/moment.min.js"></script>
+ 		<script src="bower_components/tether/dist/js/tether.min.js"></script>
+		<script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+ 		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+
+		<!-- Angular -->
+ 		<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+ 	 	<script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>
+ 	 	<script type="text/javascript" src="bower_components/angular-aria/angular-aria.min.js"></script>
+ 	 	<script type="text/javascript" src="bower_components/angular-messages/angular-messages.min.js"></script>
+ 	 	<script type="text/javascript" src="bower_components/angular-material/angular-material.min.js"></script>
+ 	 	<script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+ 		<link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+ 		
+ 		<script type="text/javascript" src="bower_components/ngstorage/ngStorage.min.js"></script>
+ 		
+ 		<!-- Angular Spinner -->
+		<script type="text/javascript" src="bower_components/angular-loading-spinner/angular-loading-spinner.js"></script>
+	  	<script type="text/javascript" src="bower_components/angular-spinner/angular-spinner.min.js"></script>
+	  	<script type="text/javascript" src="bower_components/spin.js/spin.js"></script>
+	
+	  	<!-- ui bootstrap -->
+<!--  	   	<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script> -->
+ 	   	<script src="bower_components/ui-bootstrap4/dist/ui-bootstrap-tpls.js"></script>
+
+	   	<!-- bootstrap-datepicker -->
+	   	<script src="bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+	   	<link rel="stylesheet" href="bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.css">
+	   	<link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.min.css">
+	   	
+	   	<!-- i18next -->
+ 		<script type="text/javascript" src="bower_components/i18next/i18next.min.js"></script>
+ 		<script type="text/javascript" src="bower_components/jquery-i18next/jquery-i18next.min.js"></script>
+<!--  		<script type="text/javascript" src="bower_components/i18next-xhr-backend/i18nextXHRBackend.min.js"></script> -->
+
+
+		
+		<!-- flags icons -->
+		<link rel="stylesheet" href="bower_components/flag-icon-css/css/flag-icon.min.css">
+
+		<link rel="stylesheet" href="css/styles.css">
+
+
+		<script>
+			var locale = navigator.language || navigator.userLanguage;
+			if (locale.length > 2)
+				locale = locale.substr(0,2);
+			document.locale = locale;
+		</script>
+</head>
+
+
+<body ng-app="nimsys">
+
+	<div class="container">
+		<div ng-include src="'header.html'"></div>
+		
+		<p id="mensajito"></p>
+		
+	 	<div ui-view>
+	 		<!--
+			<h3>Title of section</h3>
+			<span>Content of section</span>
+			-->
+	 	</div>
+	
+ 		<div ng-include src="'footer.html'"></div>
+	</div>
+	
+	<div class="modal"></div>
+
+</body>
+
+
+
+<script type="text/javascript" src="js/index.js"></script>
+
+<script type="text/javascript" src="js/loginCtrl.js"></script>
+<script type="text/javascript" src="js/logoutCtrl.js"></script>
+<script type="text/javascript" src="js/mainCtrl.js"></script>
+<script type="text/javascript" src="js/adminCtrl.js"></script>
+<script type="text/javascript" src="js/normalCtrl.js"></script>
+<script type="text/javascript" src="js/loginFactory.js"></script>
+
+<!-- Import script Controllers  -->
+<script type="text/javascript" src="js/userCtrl.js"></script>
+<script type="text/javascript" src="js/changePasswordCtrl.js"></script>
+<script type="text/javascript" src="js/searchCtrl.js"></script>
+<script type="text/javascript" src="js/docDetailsCtrl.js"></script>
+<script type="text/javascript" src="js/contactCtrl.js"></script>
+<script type="text/javascript" src="js/registrationCtrl.js"></script>
+
+<script type="text/javascript" src="js/testCtrl.js"></script>
+
+</html>

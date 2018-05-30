@@ -1,0 +1,44 @@
+<form class="form-horizontal" ng-submit="">
+
+	
+	
+	
+	<div class="table-responsive">
+		<table class="table table-bordered table-condensed">
+			<tr class="info">
+				<th>TYPE</th>
+				<th>CODE</th>
+				<th>TITLE</th>
+				<th>DATE</th>
+			</tr>
+			
+			<tr ng-repeat="elem in filteredResults">
+				<td></td>
+				<td id="{{elem.mainAttr.documentId}}">{{elem.mainAttr.title}}</td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+	</div>
+	
+	
+	<button id="boton" type="button" class="btn btn-secondary" ng-click="actualizar()">Actualizar</button>
+	
+	<button id="boton" type="button" class="btn btn-secondary" ng-click="createPages(12)">Crear páginas (12)</button>
+		
+	
+	<nav aria-label="Page navigation example">
+	  <ul class="pagination">
+	  
+	  	<li ng-if="pages.length>limitVisiblePages" class="page-item"><a class="page-link" href="#">Previous</a></li>
+	  
+	  	<li class="page-item" ng-repeat="p in pages"><a class="page-link" href="#">{{p.text}}</a></li>
+	    
+	    <li ng-if="pages.length>limitVisiblePages" class="page-item"><a class="page-link" href="#">Next</a></li>
+	    
+	  </ul>
+	</nav>
+	
+			
+
+</form>

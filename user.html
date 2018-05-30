@@ -1,0 +1,66 @@
+<h3 data-i18n="user.title">User information</h3>
+
+<form class="form-horizontal" data-ng-init="init()" ng-submit="sendData()">  
+
+    <div class="card">
+		<div class="card-block">
+			<div class="form-group row">
+		  		<label for="firstname" class="col-2 col-form-label" data-i18n="user.firstname">Firstname</label>
+		  		<div class="col-10">
+		  			<input type="text" class="form-control" id="firstname" ng-model="user.firstname" value="{{user.firstname}}">
+		  		</div>
+			</div>
+		
+			<div class="form-group row">
+		  		<label for="lastname" class="col-2 col-form-label" data-i18n="user.lastname">Lastname</label>
+		  		<div class="col-10">
+		  			<input type="text" class="form-control" id="lastname" ng-model="user.lastname" value="{{user.lastname}}">
+		  		</div>
+			</div>
+			
+			<div class="form-group row">
+		  		<label for="company" class="col-2 col-form-label" data-i18n="user.company">Company</label>
+		  		<div class="col-10">
+		  			<input type="text" class="form-control" id="company" ng-model="user.company" value="{{user.company}}">
+		  		</div>
+			</div>
+		
+			<div class="form-group row">
+		  		<label for="username" class="col-2 col-form-label" data-i18n="user.username">Username</label>
+		  		<div class="col-10">
+		  			<input readonly="readonly" type="text" class="form-control" id="username" ng-model="user.username" value="{{user.username}}">
+		  		</div>
+			</div>
+			
+			<div class="form-group row">
+		  		<label for="email" class="col-2 col-form-label" data-i18n="user.email">Email</label>
+		  		<div class="col-10">
+		  			<input readonly="readonly" type="text" class="form-control" id="email" ng-model="user.email" value="{{user.email}}">
+		  		</div>
+			</div>
+			
+			<div class="form-group row">
+		  		<label for="datecreated" class="col-2 col-form-label" data-i18n="user.createdon">Created on</label>
+		  		<div class="col-10">
+		  			<input readonly="readonly" type="text" class="form-control" id="datecreated" ng-model="user.datecreated" value="{{user.datecreated}}">
+		  		</div>
+			</div>
+			
+			<div class="form-group row">
+		  		<label for="lastaccess" class="col-2 col-form-label" data-i18n="user.lastaccesson">Last access on</label>
+		  		<div class="col-10">
+		  			<input readonly="readonly" type="text" class="form-control" id="lastaccess" ng-model="user.lastaccess" value="{{user.lastaccess}}">
+		  		</div>
+			</div>
+
+		</div>
+	</div>
+	
+	<hr/>
+	
+	<button class="btn btn-secondary space-left" data-i18n="buttons.save" type="submit">Save</button>
+
+	<div id="alert-error" class="alert alert-danger space-before collapse" role="alert">{{msg}}</div>
+	<div id="alert-success" class="alert alert-success space-before collapse" role="alert">{{msg}}</div>
+	
+</form>
