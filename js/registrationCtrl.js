@@ -1,5 +1,5 @@
 
-angular.module('nimsys').controller('RegistrationCtrl', ['$scope','$rootScope','$localStorage','$http','$location','$window','UrlService', function($scope,$rootScope,$localStorage,$http,$location,$window,UrlService) {
+angular.module('nimsys').controller('RegistrationCtrl', ['$scope','$localStorage','$http','$location','$window','UrlService', function($scope,$localStorage,$http,$location,$window,UrlService) {
 	
 	$scope.msg = [];
 	
@@ -34,26 +34,26 @@ angular.module('nimsys').controller('RegistrationCtrl', ['$scope','$rootScope','
 			headers: {
 //				'Authorization': 'Bearer ' + $scope.user.token,
 				'Content-Type': 'application/json'
-			},
+			}/*,
 			params: {
 				'aToken': 'Bearer ' + $scope.user.token
-			},
+			}*/,
 			data: data
 		}
-		alert("sent");
-//		$http(req).then(function (success){
-//			$scope.msg = "Registration request sent. You will receive a confirmation email when aproved by the administrator";
-//    		$('#alert-success').show();
-//    		$('#alert-error').hide();
-//    		
-//    		$("body").removeClass("loading");
-//    	},function (error){
-//    		$scope.msg = error.data.description;
-//			$('#alert-success').hide();
-//			$('#alert-error').show();
-//			
-//			$("body").removeClass("loading");
-//    	});
+
+		$http(req).then(function (success){
+			$scope.msg = "Registration request sent. You will receive a confirmation email when aproved by the administrator.";
+    		$('#alert-success').show();
+    		$('#alert-error').hide();
+    		
+    		$("body").removeClass("loading");
+    	},function (error){
+    		$scope.msg = error.data.description;
+			$('#alert-success').hide();
+			$('#alert-error').show();
+			
+			$("body").removeClass("loading");
+    	});
 	};
 	
 	

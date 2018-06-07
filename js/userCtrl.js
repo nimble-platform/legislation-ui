@@ -80,7 +80,8 @@ angular.module('nimsys').controller('UserCtrl', ['$scope','loginFactory','$rootS
 				'Content-Type': 'application/json'
 			},
 			params: {
-				'aToken': 'Bearer ' + $scope.user.token
+				'aToken': 'Bearer ' + $rootScope.user.token,
+				'password': password
 			},
 			data: data
 		}

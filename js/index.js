@@ -320,7 +320,7 @@ angular.module('nimsys', ['ui.router', 'ngStorage', 'ngMaterial', 'ngMessages', 
 
 		$rootScope.$on('$stateChangeStart', function(event, next){
 
-			    if(next.name !== 'login'){
+			    if(next.name !== 'login' && next.name !== 'registration' && next.name !== 'contact') {
 			    	var authorizedRoles = next.data.authorizedRoles;
 			    	
 			    	/*

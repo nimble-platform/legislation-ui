@@ -30,7 +30,7 @@ angular.module('nimsys').controller('ChangePasswordCtrl', ['$scope','$rootScope'
 			$('#alert-error').show();
 		}
 		else {
-			var url = UrlService.root + "/rest" + "/changepassword/post/" + username + "/" + passwordOld + "/" + passwordNew1;
+			var url = UrlService.root + "/rest" + "/changepassword/post/" + username;
 
 			var req = {
 				method: 'POST',
@@ -39,7 +39,9 @@ angular.module('nimsys').controller('ChangePasswordCtrl', ['$scope','$rootScope'
 //					'Authorization': 'Bearer ' + $scope.user.token
 //				},
 				params: {
-					'aToken': 'Bearer ' + $scope.user.token
+					'aToken': 'Bearer ' + $scope.user.token,
+					'passwordOld': passwordOld,
+					'passwordNew': passwordNew1
 				}
 			}
 			
@@ -49,7 +51,7 @@ angular.module('nimsys').controller('ChangePasswordCtrl', ['$scope','$rootScope'
 	    		$('#alert-error').hide();
 				
 	    	},function (error){
-	    		if (error.data != null)    		
+	    		if (error.data != null)
 	    			$scope.msg = error.data.message;
 	    		else 
 	    			$scope.msg = error.message;
