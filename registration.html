@@ -1,60 +1,58 @@
-<h3 data-i18n="registration.title">Sign Up</h3>
-
-<form class="form-horizontal ng-invalid" name="form" role="form" ng-submit="sendData()" data-ng-init="init()">
+<div>
+	<p class="pb-3 nimble-title" data-i18n="registration.title">Sign Up</p>
 	
-	<div class="card">
-		<div class="card-block">
+	<form class="form-horizontal ng-pristine ng-invalid" name="form" ng-submit="sendData()" novalidate="" data-ng-init="init()">
+		<div>
 			<div class="form-group row">
 		  		<label for="email" class="col-2 col-form-label">
 		  			<span data-i18n="user.email">Email</span>&nbsp;<span>*</span>
 		  		</label>
 		  		<div class="col-10">
-		  			<input type="text" class="form-control" id="email" ng-model="user.email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required="" ng-reflect-pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" ng-reflect-name="email" type="email">
+		  			<input class="form-control ng-untouched ng-pristine ng-invalid" id="email" ng-model="user.email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9._-]+\.[a-z]{2,3}$" required ng-reflect-pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" ng-reflect-name="email" type="email">
 		  		</div>
 			</div>
 		
 			<div class="form-group row">
 		  		<label for="firstname" class="col-2 col-form-label">
-		  			<span data-i18n="user.firstname">Firstname</span>&nbsp;<span>*</span>
+		  			<span data-i18n="user.firstname"></span>&nbsp;<span>*</span>
 		  		</label>
 		  		<div class="col-10">
-		  			<input type="text" class="form-control" id="firstname" ng-model="user.firstname" required>
+		  			<input type="text" class="form-control ng-untouched ng-pristine ng-invalid" id="firstname" name="firstname" ng-model="user.firstname" required ng-reflect-name="email">
 		  		</div>
 			</div>
 		
 			<div class="form-group row">
 		  		<label for="lastname" class="col-2 col-form-label">
-		  			<span data-i18n="user.lastname">Lastname</span>&nbsp;<span>*</span>
+		  			<span data-i18n="user.lastname"></span>&nbsp;<span>*</span>
 		  		</label>
 		  		<div class="col-10">
-		  			<input type="text" class="form-control" id="lastname" ng-model="user.lastname" required>
+		  			<input type="text" class="form-control ng-untouched ng-pristine ng-invalid" id="lastname" name="lastname" ng-model="user.lastname" required ng-reflect-name="lastname">
 		  		</div>
 			</div>
 			
 			<div class="form-group row">
 		  		<label for="company" class="col-2 col-form-label">
-		  			<span data-i18n="user.company">Company</span>&nbsp;<span>*</span>
+		  			<span data-i18n="user.company"></span>&nbsp;<span>*</span>
 		  		</label>
 		  		<div class="col-10">
-		  			<input type="text" class="form-control" id="company" ng-model="user.company" required>
+		  			<input type="text" class="form-control ng-untouched ng-pristine ng-invalid" id="company" name="company" ng-model="user.company" required ng-reflect-name="company">
 		  		</div>
 			</div>
 			
 			<div class="form-group row">
-		  		<label for="comments" class="col-2 col-form-label" data-i18n="user.comments">Comments</label>
+		  		<label for="comments" class="col-2 col-form-label" data-i18n="user.comments"></label>
 		  		<div class="col-10">
-		  			<textarea class="form-control" id="comments" rows="3" ng-model="comments"></textarea>
+		  			<textarea class="form-control" id="comments" name="comments" rows="3" ng-model="comments" ng-reflect-name="comments"></textarea>
 		  		</div>
 			</div>
 		</div>
-	</div>
+		
+		<hr/>
+		
+		<button class="btn btn-primary action" type="submit" disabled="disabled" data-i18n="buttons.register" ng-disabled="form.$invalid" ng-reflect-disabled="true"></button>
 	
-	<hr/>
-	
-	<button class="btn btn-secondary space-left" ng-disabled="form.$invalid" data-i18n="buttons.register" type="submit" ng-reflect-disabled="true" disabled="disabled">Sign Up</button>
+		<div id="alert-error" class="alert alert-danger space-before collapse" role="alert">{{msg}}</div>
+		<div id="alert-success" class="alert alert-success space-before collapse" role="alert">{{msg}}</div>
+	</form>
 
-	<div id="alert-error" class="alert alert-danger space-before collapse" role="alert">{{msg}}</div>
-	<div id="alert-success" class="alert alert-success space-before collapse" role="alert">{{msg}}</div>
-
-	
-</form>
+</div>

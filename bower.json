@@ -1,0 +1,43 @@
+{
+  "name": "nimsys",
+  "authors": [
+    "fgigante <fgigante@aidimme.es>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "index.html",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "package.json",
+    "build",
+    "nuget",
+    "site",
+    "docs",
+    "src"
+  ],
+  "dependencies": {
+    "angular": "^1.7.5",
+    "angular-animate": "^1.7.5",
+    "angular-aria": "^1.7.5",
+    "angular-bootstrap": "^2.5.0",
+    "angular-loading-spinner": "^0.0.3",
+    "angular-material": "^1.1.12",
+    "angular-ui-router": "^1.0.20",
+    "bootstrap": "^4.2.1",
+    "bootstrap-datepicker": "^1.8.0",
+    "bootpag": "^1.0.7",
+    "components-font-awesome": "^5.4.2",
+    "i18next": "^13.1.2",
+    "jquery-i18next": "^1.2.1",
+    "moment": "^2.23.0",
+    "ngstorage": "^0.3.11",
+    "tether": "^1.4.4",
+    "ui-bootstrap4": "^3.0.5"
+  }
+}

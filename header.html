@@ -1,91 +1,59 @@
-	<nav class="navbar navbar-toggleable-md navbar-inverse bg-faded nimble-bg space-after">
-		<button aria-controls="navbarNavAltMarkup" class="navbar-toggler navbar-toggler-right" type="button" aria-expanded="false">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<a class="navbar-brand active" routerlink="/" routerlinkactive="active" ng-reflect-router-link="/" ng-reflect-router-link-active="active" ng-reflect-href="#/" href="#/">
-		<img alt="" class="d-inline-block align-top" id="nav-logo" src="img/nimble_logo_white.png" height="30">
-		</a>
+<nav class="navbar navbar-expand-lg navbar-dark nimble-bg space-after">
 
-		<div class="navbar-collapse collapse" id="navbarNavAltMarkup" ng-reflect-collapsed="true" aria-expanded="false">
-			<ul class="nav navbar-nav mr-auto">
+	<a class="navbar-brand active">
+		<img alt="" class="d-inline-block align-top" id="nav-logo" src="img/logo_fmp.png" height="30">
+	</a>
+	<button aria-controls="navbarNavAltMarkup" class="navbar-toggler" type="button" aria-expanded="false">
+		<span class="navbar-toggler-icon">
+			<span class="icon-bar"></span>
+	      	<span class="icon-bar"></span>
+	      	<span class="icon-bar"></span>
+		</span>
+	</button>
+	<div class="navbar-collapse collapse" id="navbarNavAltMarkup">
+		<ul class="nav navbar-nav mr-auto">
+			<!-- LOGIN -->
+			<li ng-if="user.token==undefined" class="nav-item active" routerlinkactive="active" ng-reflect-router-link-active="active">
+				<a class="nav-link" ui-sref="login">
+ 					<i class="fa fa-unlock"></i> <span data-i18n="menu.login">Login</span>
+				</a>
+			</li>
+			<li ng-if="user.token!==undefined" class="nav-item disabled">
+				<a class="nav-link">
+ 					<i class="fa fa-unlock"></i> <span data-i18n="menu.login">Login</span>
+				</a>
+			</li>
 			
-				<li ng-if="user.token==undefined" class="nav-item active" routerlinkactive="active" ng-reflect-router-link-active="active">
-					<a class="nav-link" ui-sref="login">
-						<img class="inline-icon" src="img/login_white.png">
-						<span data-i18n="menu.login">Login</span>
-					</a>
-				</li>
-				<li ng-if="user.token!==undefined" class="nav-item disabled">
-					<a class="nav-link">
-						<img class="inline-icon" src="img/login_white.png">
-						<span data-i18n="menu.login">Login</span>
-					</a>
-				</li>
-				
-				<li ng-if="user.token==undefined" class="nav-item disabled">
-					<a class="nav-link">
-						<img class="inline-icon" src="img/search_white.png">
-						<span data-i18n="menu.searchdocument">Search</span>
-					</a>
-				</li>
-				<li ng-if="user.token!==undefined" class="nav-item active" routerlinkactive="active" ng-reflect-router-link-active="active">
-					<a class="nav-link" ui-sref="search">
-						<img class="inline-icon" src="img/search_white.png">
-						<span data-i18n="menu.searchdocument">Search</span>
-					</a>
-				</li>
-				
-				
-				<li ng-if="user.token==undefined" class="nav-item dropdown disabled">
-					<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						<img class="inline-icon" src="img/user_white.png">
-          				<span data-i18n="menu.user">User</span>
-        			</a>
-        			<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-        				<a class="dropdown-item" data-i18n="menu.userinformation">User information</a>
-          				<a class="dropdown-item" data-i18n="menu.changepassword">Change password</a>
-        			</div>
-				</li>
-				<li ng-if="user.token!==undefined" class="nav-item dropdown active">
-					<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						<img class="inline-icon" src="img/user_white.png">
-          				<span data-i18n="menu.user">User</span>
-        			</a>
-        			<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-        				<a class="dropdown-item" data-i18n="menu.userinformation" ui-sref="user">User information</a>
-          				<a class="dropdown-item" data-i18n="menu.changepassword" ui-sref="changePassword">Change password</a>
-        			</div>
-				</li>
-				
-				<!--
-				<li ng-if="user.token==undefined" class="nav-item disabled">
-					<a class="nav-link">
-						<img class="inline-icon" src="img/user_white.png">
-						<span>Test</span>
-					</a>
-				</li>
-				<li ng-if="user.token!==undefined" class="nav-item active" routerlinkactive="active" ng-reflect-router-link-active="active">
-					<a class="nav-link" ui-sref="test">
-						<img class="inline-icon" src="img/user_white.png">
-						<span>Test</span>
-					</a>
-				</li>
-				-->
-				
-				<li ng-if="user.token==undefined" class="nav-item disabled">
-					<a class="nav-link">
-						<img class="inline-icon" src="img/logout_white.png">
-						<span data-i18n="menu.logout">Logout</span>
-					</a>
-				</li>
-				<li ng-if="user.token!==undefined" class="nav-item active" routerlinkactive="active" ng-reflect-router-link-active="active">
-					<a class="nav-link" ui-sref="logout">
-						<img class="inline-icon" src="img/logout_white.png">
-						<span data-i18n="menu.logout">Logout</span>
-					</a>
-				</li>
-
-					
+			<!-- SEARCH -->
+			<li ng-if="user.token==undefined" class="nav-item disabled">
+				<a class="nav-link">
+ 					<i class="fa fa-unlock"></i> <span data-i18n="menu.searchdocument">Search</span>
+				</a>
+			</li>
+			<li ng-if="user.token!==undefined" class="nav-item active" routerlinkactive="active" ng-reflect-router-link-active="active">
+				<a class="nav-link" ui-sref="search">
+ 					<i class="fa fa-unlock"></i> <span data-i18n="menu.searchdocument">Search</span>
+				</a>
+			</li>
+			
+			<!-- USER -->
+			<li ng-if="user.token==undefined" class="nav-item dropdown disabled">
+				<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+ 					<i class="fa fa-edit"></i> <span data-i18n="menu.user">User</span>
+				</a>
+			</li>
+			<li ng-if="user.token!==undefined" class="nav-item dropdown active">
+				<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+ 					<i class="fa fa-edit"></i> <span data-i18n="menu.user">User</span>
+				</a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+       				<a class="dropdown-item" data-i18n="menu.userinformation" ui-sref="user">User information</a>
+	   				<a class="dropdown-item" data-i18n="menu.changepassword" ui-sref="changePassword">Change password</a>
+       			</div>
+			</li>
+			
+			
+			<!-- LANGUAGE -->
 <!-- 				<li class="nav-item active dropdown"> -->
 <!-- 					<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
 <!-- 						<img class="inline-icon" src="img/language_white.png"> -->
@@ -96,20 +64,30 @@
 <!--           				<a class="dropdown-item" onclick="javascript:changeLanguage('es')">Español</a> -->
 <!--         			</div> -->
 <!-- 				</li> -->
-				
-				
-				<li class="nav-item active" routerlinkactive="active" ng-reflect-router-link-active="active">
-					<a class="nav-link" ui-sref="contact">
-						<img class="inline-icon" src="img/contact_white.png">
-						<span data-i18n="menu.contact">Contact</span>
-					</a>
-				</li>
 
-				
-			</ul>
-		</div>
-		
-		
+			<!-- CONTACT -->
+			<li class="nav-item active" routerlinkactive="active" ng-reflect-router-link-active="active">
+				<a class="nav-link" ui-sref="contact">
+					<i class="fa fa-edit"></i> <span data-i18n="menu.contact">Contact</span>
+				</a>
+			</li>
+			
+			
+			<!-- LOGOUT -->
+			<li ng-if="user.token==undefined" class="nav-item disabled">
+				<a class="nav-link">
+ 					<i class="fa fa-unlock"></i> <span data-i18n="menu.logout">Logout</span>
+				</a>
+			</li>
+			<li ng-if="user.token!==undefined" class="nav-item active" routerlinkactive="active" ng-reflect-router-link-active="active">
+				<a class="nav-link" ui-sref="logout">
+ 					<i class="fa fa-unlock"></i> <span data-i18n="menu.logout">Logout</span>
+				</a>
+			</li>
+			
+		</ul>
+	</div>
+
 <!-- 		<div class="flag-wrapper" ng-switch="sLan"> -->
 <!--   			<div class="flag-icon-background" ng-switch-when="es"> -->
 <!-- 	  			<span class="flag-icon flag-icon-es flag-custom"></span> -->
@@ -120,10 +98,10 @@
 <!-- 		</div> -->
 
 
-		<div style="width: 40px"></div>
-	
-		
-		<a class="navbar-brand active" routerlink="/" routerlinkactive="active" ng-reflect-router-link="/" ng-reflect-router-link-active="active" ng-reflect-href="#/" href="#/">
+
+
+ 	<a class="navbar-brand active">
 		<img alt="" class="d-inline-block align-mid" id="nav-logo" src="img/aidimme_logo_white.png" height="15">
-		</a>
-	</nav>
+	</a>
+	
+</nav>

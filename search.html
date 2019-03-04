@@ -38,7 +38,7 @@
 <!--  	<span>LAN={{sLan}}</span> -->
 
 	<!-- CARD BASIC INFORMATION -->
-	<div class="card">
+	<div>
 		<div class="card-block">
 			<h5 class="card-title"><span data-i18n="search.basicinformation">BASIC INFORMATION</span></h5>
 		
@@ -65,7 +65,7 @@
 			
 			<div class="form-group row">
     			<div class="col-sm-6">
-        			<label for="datepickerEntryFrom" data-i18n="search.datefrom">Date from</label>
+        			<label for="datepickerEntryFrom" data-i18n="search.datefrom">Date entry from</label>
         			
 					<div class="input-group date" id="datepickerEntryFrom">
 		      			<input type="text" class="form-control" ng-model="search.mainAttr.dateEntryFrom">
@@ -78,7 +78,7 @@
 					</script>
     			</div>
     			<div class="col-sm-6">
-        			<label for="datepickerEntryTo" data-i18n="search.dateto">Date to</label>
+        			<label for="datepickerEntryTo" data-i18n="search.dateto">Date entry to</label>
 	        		
 					<div class="input-group date" id="datepickerEntryTo">
 		      			<input type="text" class="form-control" ng-model="search.mainAttr.dateEntryTo">
@@ -102,9 +102,42 @@
 	<div id="cardContainer">
 	
 		<!-- CARD NORMATIVA -->
-		<div class="card hide" id="cardAttr0">
+		<div class="hide" id="cardAttr0">
 			<div class="card-block">
 				<h5 class="card-title" data-i18n="search.regulation.properties">NORMATIVE ATTRIBUTES</h5>
+				
+				<!-- NEW!! For dates as spec attributes -->
+				<!--
+				<div class="form-group row">
+	    			<div class="col-sm-6">
+	        			<label for="datepickerEditingDateFrom" data-i18n="search.datefrom">Editing Date from</label>
+	        			
+						<div class="input-group date" id="datepickerEditingDateFrom">
+			      			<input type="text" class="form-control" ng-model="search.specAttr.editingDateFrom">
+			      			<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+			    		</div>
+						<script type="text/javascript">
+						    $('#datepickerEditingDateFrom').datepicker({
+	 					    	format: dateFormat
+			    			});
+						</script>
+	    			</div>
+	    			<div class="col-sm-6">
+	        			<label for="datepickerEditingDateTo" data-i18n="search.dateto">Editing Date to</label>
+		        		
+						<div class="input-group date" id="datepickerEditingDateTo">
+			      			<input type="text" class="form-control" ng-model="search.specAttr.editingDateTo">
+			      			<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+			    		</div>
+						<script type="text/javascript">
+						    $('#datepickerEditingDateTo').datepicker({
+						    	format: dateFormat,
+						    	language: "es"
+			    			});
+						</script>
+	    			</div>
+				</div>
+				-->
 			
 				<div class="form-group row">			  		
 			  		<label for="regulationType" class="col-2 col-form-label icon" data-i18n="search.regulation.regulationtype" data-toggle="collapse" data-target="#collapseRegulationTypeInfo">Regulation type</label>
@@ -185,7 +218,7 @@
 		</div>
 		
 		<!-- CARD LEGISLACIÓN -->
-		<div class="card hide" id="cardAttr1">
+		<div class="hide" id="cardAttr1">
 			<div class="card-block">
 				<h5 class="card-title" data-i18n="search.legislation.properties">LEGISLATION ATTRIBUTES</h5>
 				
@@ -250,7 +283,7 @@
 		
 		
 		<!-- CARD INFORMES SECTORIALES -->
-		<div class="card hide" id="cardAttr3">
+		<div class="hide" id="cardAttr3">
 			<div class="card-block">
 				<h5 class="card-title" data-i18n="search.sectorialreport.properties">SECTORIAL REPORT ATTRIBUTES</h5>
 				
@@ -309,7 +342,8 @@
 		
 		<hr>
 		
-		<button class="btn btn-secondary space-left" data-i18n="buttons.searchdocuments" type="submit">Search documents</button>
+<!-- 		<button class="btn btn-secondary space-left" data-i18n="buttons.searchdocuments" type="submit">Search documents</button> -->
+		<button class="btn btn-primary action" data-i18n="buttons.searchdocuments" type="submit">Search documents</button>
 	
 	</div>
 	
@@ -319,7 +353,7 @@
 	
 	<hr/>
 	
-	<div class="card hide" id="cardResults">
+	<div class="hide" id="cardResults">
 		<div class="card-block">
 			<h5 class="card-title"><span>{{results.length}}</span> <span data-i18n="search.found">DOCUMENTS FOUND</span></h5>
 			
@@ -364,13 +398,14 @@
 		</div>
 		
 		<hr/>
-		<button class="btn btn-secondary space-left" type="button" ng-click="scrollToSearch()" data-i18n="buttons.backtosearch">Back to search</button>
+<!-- 		<button class="btn btn-secondary space-left" type="button" ng-click="scrollToSearch()" data-i18n="buttons.backtosearch">Back to search</button> -->
+		<button class="btn btn-primary action space-left" ng-click="scrollToSearch()" data-i18n="buttons.backtosearch">Back to search</button>
 		<hr/>		
 	</div>
 	
 	<hr/>
 
-	<div class="card hide bg-light text-dark mb-3" id="cardDocumentDetails">
+	<div class="hide bg-light text-dark mb-3" id="cardDocumentDetails">
 		<div class="card-block">
 			<h5 class="card-title" data-i18n="search.docdetails">DOCUMENT DETAILS</h5>
 
@@ -586,7 +621,8 @@
 		</div>
 		
 		<hr/>
-		<button class="btn btn-secondary space-left" type="button" ng-click="scrollToSearch()" data-i18n="buttons.backtosearch">Back to search</button>
+<!-- 		<button class="btn btn-secondary space-left" type="button" ng-click="scrollToSearch()" data-i18n="buttons.backtosearch">Back to search</button> -->
+			<button class="btn btn-primary action space-left" ng-click="scrollToSearch()" data-i18n="buttons.backtosearch">Back to search</button>
 		<hr/>
 	</div>
 	

@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 	<title>AIDIMME Regulation and Legislation System</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="icon" type="image/x-icon" href="img/favicon.ico">
+	
+		<!-- Javascript Assets -->
 		
 		<!-- Jquery -->
  		<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
 		
 		<!-- Bootstrap -->
-		
   		<script type="text/javascript" src="bower_components/moment/min/moment.min.js"></script>
  		<script src="bower_components/tether/dist/js/tether.min.js"></script>
 		<script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -34,25 +34,24 @@
 	  	<script type="text/javascript" src="bower_components/spin.js/spin.js"></script>
 	
 	  	<!-- ui bootstrap -->
-<!--  	   	<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script> -->
- 	   	<script src="bower_components/ui-bootstrap4/dist/ui-bootstrap-tpls.js"></script>
+		<script src="bower_components/ui-bootstrap4/docs/ui-bootstrap-tpls.js"></script>
 
 	   	<!-- bootstrap-datepicker -->
 	   	<script src="bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 	   	<link rel="stylesheet" href="bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.css">
-	   	<link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.min.css">
+	   	<link rel="stylesheet" href="bower_components/components-font-awesome/css/fontawesome-all.min.css">
 	   	
 	   	<!-- i18next -->
  		<script type="text/javascript" src="bower_components/i18next/i18next.min.js"></script>
  		<script type="text/javascript" src="bower_components/jquery-i18next/jquery-i18next.min.js"></script>
 <!--  		<script type="text/javascript" src="bower_components/i18next-xhr-backend/i18nextXHRBackend.min.js"></script> -->
 
-
-		
 		<!-- flags icons -->
 <!-- 		<link rel="stylesheet" href="bower_components/flag-icon-css/css/flag-icon.min.css"> -->
 
 		<link rel="stylesheet" href="css/styles.css">
+		
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700" rel="stylesheet">
 
 
 		<script>
@@ -66,19 +65,15 @@
 
 <body ng-app="nimsys">
 
-	<div class="container">
-		<div ng-include src="'header.html'"></div>
+	<div class="container-fluid">
+			<div ng-include src="'header.html'"></div>
+			
+<!-- 			<p id="mensajito"></p> -->
+			<div id="wrapper">
+		 		<div ui-view></div>
+		 	</div>
 		
-		<p id="mensajito"></p>
-		
-	 	<div ui-view>
-	 		<!--
-			<h3>Title of section</h3>
-			<span>Content of section</span>
-			-->
-	 	</div>
-	
- 		<div ng-include src="'footer.html'"></div>
+	 		<div ng-include src="'footer.html'"></div>
 	</div>
 	
 	<div class="modal"></div>

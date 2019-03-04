@@ -1,33 +1,78 @@
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 
-<h3 data-i18n="login.title">Login</h3>
+<div class="row col-10 mx-auto" style="padding-top: 20vh;">
+    <p class="col-12 nimble-title" data-i18n="login.title">Login</p>
+</div>
+
+<!-- <credentials-form> -->
+<!-- 	<form class="space-before ng-untouched ng-pristine ng-invalid" name="form" role="form" ng-submit="login()" data-ng-init="init()"> -->
+<!-- 		<div class="input-group form-group"> -->
+<!-- 			<label class="input-group-addon" for="email" data-i18n="login.email">E-Mail</label> -->
+<!-- 			<input ng-model="user.username" name="username" class="form-control ng-untouched ng-pristine ng-invalid" id="username" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required="" ng-reflect-pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" ng-reflect-name="email" type="email"> -->
+<!-- 		</div> -->
+<!-- 		<div class="input-group form-group"> -->
+<!-- 			<label class="input-group-addon" for="password" data-i18n="login.password">Password</label> -->
+<!-- 			<input ng-model="user.password" name="password" class="form-control ng-untouched ng-pristine ng-invalid" id="password" name="password" pattern=".{4,}" required ng-reflect-pattern=".{6,}" ng-reflect-name="password" type="password"> -->
+<!-- 		</div> -->
+		
+<!-- 		<button class="btn btn-primary action" data-i18n="buttons.submit" type="submit" ng-disabled="form.$invalid" ng-reflect-disabled="true" disabled="disabled">Submit</button> -->
+		
+<!-- 		<span data-i18n="login.newuser">new user?</span>&nbsp; -->
+<!-- 		<a class="" ui-sref="registration" data-i18n="login.createaccount">create new account</a> -->
+		
+<!-- 		<div ng-reflect-hidden="true" hidden=""> -->
+<!-- 			<img class="space-before" src="img/form_loader.gif"> -->
+<!-- 		</div> -->
+		
+<!-- 		<div id="alert-error" class="alert alert-danger space-before collapse" role="alert">{{msg}}</div> -->
+<!-- 		<div id="alert-success" class="alert alert-success space-before collapse" role="alert">{{msg}}</div> -->
+
+<!-- 	</form> -->
+<!-- </credentials-form> -->
+
 
 <credentials-form>
-	<form class="space-before ng-untouched ng-pristine ng-invalid" name="form" role="form" ng-submit="login()" data-ng-init="init()">
-		<div class="input-group form-group">
-			<label class="input-group-addon" for="email" data-i18n="login.email">E-Mail</label>
-			<input ng-model="user.username" name="username" class="form-control ng-untouched ng-pristine ng-invalid" id="username" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required="" ng-reflect-pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" ng-reflect-name="email" type="email">
+	<form class="space-before ng-untouched ng-pristine ng-invalid" name="form" ng-submit="login()" novalidate="" data-ng-init="init()">
+	
+		<div class="form-group row col-10 mx-auto">
+			<label class="col-3 col-form-label font-weight-bold" for="email" data-i18n="login.email">E-Mail</label>
+			<div class="col-9">
+				<input class="form-control ng-untouched ng-pristine ng-invalid" ng-model="user.username" id="username" name="username" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9._-]+\.[a-z]{2,3}$" required ng-reflect-pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" ng-reflect-name="email" type="email">
+			</div>
 		</div>
-		<div class="input-group form-group">
-			<label class="input-group-addon" for="password" data-i18n="login.password">Password</label>
-			<input ng-model="user.password" name="password" class="form-control ng-untouched ng-pristine ng-invalid" id="password" name="password" pattern=".{4,}" required ng-reflect-pattern=".{6,}" ng-reflect-name="password" type="password">
+
+		
+		<div class="form-group row col-10 mx-auto">
+			<label class="col-3 col-form-label font-weight-bold" for="password" data-i18n="login.password">Password</label>
+			<div class="col-9">
+				<input class="form-control ng-untouched ng-pristine ng-invalid" ng-model="user.password" id="password" name="password" pattern=".{4,}" required ng-reflect-pattern=".{6,}" ng-reflect-name="password" type="password">
+			</div>
+		</div>
+
+		
+		<div class="row col-12 actions-row">
+			<div class="col-9 call-status-col">
+				<div ng-reflect-hidden="true" hidden="">
+					<img class="space-before" src="img/form_loader.gif">
+				</div>
+			</div>
+			<div class="col-2">
+				<button class="btn btn-primary action" type="submit" disabled="disabled" data-i18n="buttons.submit" ng-disabled="form.$invalid" ng-reflect-disabled="true">Submit</button>
+			</div>
+		</div>
+
+		
+		<div class="row col-11 space-before">
+			<div class="col-12 d-flex flex-row-reverse">
+<!-- 				<a class="mx-left" target="_blank" href="http://nimble-staging.salzburgresearch.at:8080/auth/realms/master/login-actions/reset-credentials?client_id=nimble_client">Forgot your password?</a> -->
+				<a class="mx-left" data-i18n="login.notyetregistered" target="_blank" ui-sref="registration"></a>
+			</div>
 		</div>
 		
-		<button class="btn btn-success" ng-disabled="form.$invalid" data-i18n="buttons.submit" type="submit" ng-reflect-disabled="true" disabled="disabled">Submit</button>
-		<span data-i18n="login.newuser">new user?</span>&nbsp;
-		<a class="" ui-sref="registration" data-i18n="login.createaccount">create new account</a>
-		
-<!-- 		<button class="btn btn-secondary space-left" data-i18n="" type="button" ng-reflect-hidden="true">Reset</button> -->
-		
-		
-		
-		
-		<div ng-reflect-hidden="true" hidden="">
-			<img class="space-before" src="img/form_loader.gif">
-		</div>
 		
 		<div id="alert-error" class="alert alert-danger space-before collapse" role="alert">{{msg}}</div>
 		<div id="alert-success" class="alert alert-success space-before collapse" role="alert">{{msg}}</div>
+		
 
 	</form>
 </credentials-form>
