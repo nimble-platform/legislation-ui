@@ -11,8 +11,7 @@ angular.module('nimsys').controller('NormalCtrl', ['$scope','$rootScope','$local
     
     
     $scope.$on('$viewContentLoaded', function(){
-	    $('.container').localize();
+    	$('#wrapper').localize();
 	});
-	
 	
 }]);

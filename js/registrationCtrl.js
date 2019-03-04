@@ -3,10 +3,12 @@ angular.module('nimsys').controller('RegistrationCtrl', ['$scope','$localStorage
 	
 	$scope.msg = [];
 	
-	$rootScope.user = $localStorage.user;
-	$rootScope.sLan = localStorage.getItem('nimsysLan');
+//	$rootScope.user = $localStorage.user;
+//	$rootScope.sLan = localStorage.getItem('nimsysLan');
 	
-	$scope.user = [];
+	$scope.user = {};
+	$scope.lan = [];
+	
 	$scope.comments = [];
 	
 	$scope.init = function () {
@@ -24,7 +26,7 @@ angular.module('nimsys').controller('RegistrationCtrl', ['$scope','$localStorage
 			lastname : $scope.user.lastname,
 			company : $scope.user.company,
 			email : $scope.user.email,
-			role : "normal",
+			/*role : "normal",*/
 			comments: $scope.comments
 		};
 		
@@ -58,7 +60,7 @@ angular.module('nimsys').controller('RegistrationCtrl', ['$scope','$localStorage
 	
 	
 	$scope.$on('$viewContentLoaded', function(){
-	    $('.container').localize();
+		$('#wrapper').localize();
 	});
 	
 

@@ -80,12 +80,14 @@ angular.module('nimsys').controller('SearchCtrl',
 			description: $scope.search.mainAttr.description
 		};
 		
+		/*
 		if (($scope.search.mainAttr.dateEntryFrom != null) && ($scope.search.mainAttr.dateEntryTo != null)) {
 			$scope.search.mainAttr.dateEntryFromConv = $scope.convDate($scope.search.mainAttr.dateEntryFrom);
 			$scope.search.mainAttr.dateEntryToConv = $scope.convDate($scope.search.mainAttr.dateEntryTo);
 			
 			queryMainAttr.dateEntry = $scope.search.mainAttr.dateEntryFromConv + "," + $scope.search.mainAttr.dateEntryToConv;
 		}
+		*/
 		
 		var querySpecAttr = $scope.setSpecAttr($scope.selectedDocumentType);
 		
@@ -149,8 +151,16 @@ angular.module('nimsys').controller('SearchCtrl',
 		    	querySpecAttr = {
 					regulationType: $scope.search.specAttr.regulationType,
 					regulationNumber: $scope.search.specAttr.regulationNumber,
-					descriptors: $scope.search.specAttr.descriptors0
+					descriptors: $scope.search.specAttr.descriptors0,
 				};
+		    	
+		    	if (($scope.search.specAttr.editingDateFrom != null) && ($scope.search.specAttr.editingDateTo != null)) {
+					$scope.search.specAttr.editingDateFromConv = $scope.convDate($scope.search.specAttr.editingDateFrom);
+					$scope.search.specAttr.editingDateToConv = $scope.convDate($scope.search.specAttr.editingDateTo);
+					
+					querySpecAttr.editingDate = $scope.search.specAttr.editingDateFromConv + "," + $scope.search.specAttr.editingDateToConv;
+				}
+		    	
 		        break;
 		    case "1":
 		    	//Legislation
@@ -211,8 +221,10 @@ angular.module('nimsys').controller('SearchCtrl',
 		$('#cardDocumentDetails').fadeOut('slow');
 		$scope.results = [];
 		$scope.filteredResults = [];
-		
-		$('#cardContainer .card').hide();
+		$('#cardAttr0').hide();
+		$('#cardAttr1').hide();
+		$('#cardAttr2').hide();
+		$('#cardAttr3').hide();
 		$('.btn-group .btn').removeClass('btn-nimblered');
 		$('.btn-group .btn').addClass('btn-secondary');
 		switch(docType) {
@@ -627,7 +639,7 @@ angular.module('nimsys').controller('SearchCtrl',
 	
 	$scope.$on('$viewContentLoaded', function(){
 
-	    $('.container').localize();
+		$('#wrapper').localize();
 	    
 	    /* Translate pagination buttons */
 		$scope.pagText.first = i18next.t('search.pagination.first');

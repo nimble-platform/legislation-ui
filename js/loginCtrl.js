@@ -51,7 +51,7 @@ angular.module('nimsys').controller('LoginCtrl', ['$scope','loginFactory','$http
 	
 	
 	$scope.$on('$viewContentLoaded', function(){
-	    $('.container').localize();
+		$('#wrapper').localize();
 	});
 
 }]);

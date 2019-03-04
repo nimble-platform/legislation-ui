@@ -54,7 +54,7 @@ i18next.init({
 				"title": "Login",
 				"email": "E-Mail",
 				"password": "Password",
-				"newuser": "new user?",
+				"notyetregistered": "Not yet registered?",
 				"createaccount": "create new account"
 			},
 			"logout": {
@@ -174,7 +174,7 @@ i18next.init({
 				"login": "Iniciar sesión",
 				"email": "Correo electrónico",
 				"password": "Contraseña",
-				"newuser": "nuevo usuario?",
+				"notyetregistered": "¿No está registrado?",
 				"createaccount": "crear nueva cuenta"
 			},
 			"logout": {

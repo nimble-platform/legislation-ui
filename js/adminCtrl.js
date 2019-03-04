@@ -11,7 +11,7 @@ angular.module('nimsys').controller('AdminCtrl', ['$scope','$rootScope','$localS
 	
 	
 	$scope.$on('$viewContentLoaded', function(){
-	    $('.container').localize();
+		$('#wrapper').localize();
 	});
 	
 	

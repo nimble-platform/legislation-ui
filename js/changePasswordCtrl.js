@@ -64,7 +64,7 @@ angular.module('nimsys').controller('ChangePasswordCtrl', ['$scope','$rootScope'
 	
 	
 	$scope.$on('$viewContentLoaded', function(){
-	    $('.container').localize();
+		$('#wrapper').localize();
 	});
 	
 }]);

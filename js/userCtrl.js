@@ -100,7 +100,7 @@ angular.module('nimsys').controller('UserCtrl', ['$scope','loginFactory','$rootS
 	
 	
 	$scope.$on('$viewContentLoaded', function(){
-	    $('.container').localize();
+	    $('#wrapper').localize();
 	});
 	
 

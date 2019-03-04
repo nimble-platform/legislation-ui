@@ -13,7 +13,7 @@ angular.module('nimsys').controller('LogoutCtrl', ['$scope','$rootScope','$state
 	
 	
 	$scope.$on('$viewContentLoaded', function(){
-	    $('.container').localize();
+		$('#wrapper').localize();
 	});
 
 }]);

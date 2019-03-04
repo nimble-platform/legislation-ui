@@ -139,7 +139,7 @@ angular.module('nimsys').controller('DocDetailsCtrl',
 	
 	
 	$scope.$on('$viewContentLoaded', function(){
-	    $('.container').localize();
+		$('#wrapper').localize();
 	});
 
 }]);

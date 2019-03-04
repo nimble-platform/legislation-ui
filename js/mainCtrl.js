@@ -32,7 +32,7 @@ angular.module('nimsys').controller('MainCtrl', ['$scope', '$rootScope', '$locat
   
   
   $scope.$on('$viewContentLoaded', function(){
-	    $('.container').localize();
+	  $('#wrapper').localize();
   });
 
   

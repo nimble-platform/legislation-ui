@@ -2,7 +2,14 @@
 
 angular.module('nimsys').factory('UrlService', function() {
 	return {
-		root : 'http://83.136.188.223/nimsys'
+		root : 'http://localhost:8080/nimsys'
+//		root : 'http://172.31.10.104:8080/nimsys'
+//		root : 'http://fgigante:8080/nimsys'
+//		root : 'http://83.136.188.223/nimsys'
+//		root : 'http://catalogovirtual.aidima.es/nimsys'
+//		root : 'http://192.168.30.50/nimsys'
+//		root : 'http://auxproyti.aidimme.es'
+//		root : 'http://192.168.30.57/nimsys'
 	};
 });
 

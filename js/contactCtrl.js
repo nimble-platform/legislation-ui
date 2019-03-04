@@ -3,10 +3,8 @@ angular.module('nimsys').controller('ContactCtrl', ['$scope','$rootScope','$loca
 	
 	$scope.msg = [];
 	
-//	$rootScope.user = $localStorage.user;
+	$rootScope.user = $localStorage.user;
 	$rootScope.sLan = localStorage.getItem('nimsysLan');
-	
-//	$scope.user = [];
 	
 	$scope.init = function () {
 		
@@ -14,7 +12,7 @@ angular.module('nimsys').controller('ContactCtrl', ['$scope','$rootScope','$loca
 	
 	
 	$scope.$on('$viewContentLoaded', function(){
-	    $('.container').localize();
+		$('#wrapper').localize();
 	});
 	
 
