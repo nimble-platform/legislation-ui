@@ -5,7 +5,7 @@ This repository contains a UI for searching documents related to norms, laws and
 The code of this repository represents a public frontend to access the documents stored in the system managed by AIDIMME. This can be downloaded and located in a public folder in any web server. This UI consists mainly of a collection of HTML and Javascript files with strong dependencies to frameworks and plugins such as AngularJS, Bootstrap v4, JQuery and additional specific ones covering the main UI functionalities.
 
 ## How to run
-Once the code is downloaded, this should be placed in a folder under a public web folder of any server (i.e.: Apache Server, Apache Tomcat, IIS, JBoss, Glassfish).
+Once the code is downloaded, the Javascript dependencies should be downloaded with bower. After installing bower (https://bower.io), the command "bower install" installs the project dependencies listed in the "bower.json" file. The installed dependencies should be located under a folder named "bower_components" in order to be reachable from the HTML files. After this, the whole project can be placed in a public web folder of any server (i.e.: Apache Server, Apache Tomcat, IIS, JBoss, Glassfish).
 
 ## API access
 The code points to the URL where the server application is running. This server application contains the API that enables the UI exploiting the main services, such as authentication, search documents or get document details. This URL is specified in the top of the file "js/loginFactory.js", in the defined service:
