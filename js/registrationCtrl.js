@@ -19,7 +19,7 @@ angular.module('nimsys').controller('RegistrationCtrl', ['$scope','$localStorage
 		
 		$("body").addClass("loading");
 		
-		var url = UrlService.root + "/rest/user/signup/post";
+		var url = UrlService.props.root + "/rest/user/signup/post";
 
 		var data = {
 			firstname : $scope.user.firstname,
@@ -36,10 +36,11 @@ angular.module('nimsys').controller('RegistrationCtrl', ['$scope','$localStorage
 			headers: {
 //				'Authorization': 'Bearer ' + $scope.user.token,
 				'Content-Type': 'application/json'
-			}/*,
+			},
 			params: {
-				'aToken': 'Bearer ' + $scope.user.token
-			}*/,
+//				'aToken': 'Bearer ' + $scope.user.token
+				'authMode': UrlService.props.authMode
+			},
 			data: data
 		}
 

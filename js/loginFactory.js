@@ -1,15 +1,16 @@
 'use strict';
 
 angular.module('nimsys').factory('UrlService', function() {
-	return {
-		root : 'http://localhost:8080/nimsys'
+	var props = {
+		root : 'http://localhost:8080/nimsys',
 //		root : 'http://172.31.10.104:8080/nimsys'
-//		root : 'http://fgigante:8080/nimsys'
 //		root : 'http://83.136.188.223/nimsys'
-//		root : 'http://catalogovirtual.aidima.es/nimsys'
-//		root : 'http://192.168.30.50/nimsys'
 //		root : 'http://auxproyti.aidimme.es'
-//		root : 'http://192.168.30.57/nimsys'
+		authMode : 'nimble', /* [internal | nimble] */
+		nimbleIdentityServiceUrl: 'https://fmp-nimble.salzburgresearch.at/api/identity/login'
+	};
+	return {
+		props
 	};
 });
 
@@ -17,11 +18,10 @@ angular.module('nimsys').factory('loginFactory',['$http', '$q', '$rootScope', '$
 	var ajsbsFactory = {};
 	$http.defaults.useXDomain = true;
    
-	ajsbsFactory.login = function(user){
-		
+	ajsbsFactory.login_internal = function(user){
 		var deferred = $q.defer();
 
-	    var url = UrlService.root + "/rest/authentication";
+	    var url = UrlService.props.root + "/rest/authentication";
 
 	    var req = {
 	    	method: 'POST',
@@ -47,44 +47,32 @@ angular.module('nimsys').factory('loginFactory',['$http', '$q', '$rootScope', '$
 	
 	    return deferred.promise;
 	}
-
 	
 	
-	/*
-	 * New method to check token to server
-	 */
-//	ajsbsFactory.isValidToken = function(){
-//		
-//		var deferred = $q.defer();
-//		
-//		$rootScope.user = $localStorage.user;
-//		
-//		var tokenObj = {
-//			username: $rootScope.user.username,
-//			token: $rootScope.user.token
-//		}
-//	
-//	    var url = UrlService.root + "/rest/checktoken";
-//
-//	    var req = {
-//	    	method: 'POST',
-//			url: url,
-//			headers: {
-//				'Content-Type': 'application/json'
-//			},
-//			data: tokenObj
-//	    }
-//		
-//	    $http(req).then(function (success){
-//	    	deferred.resolve(success);	    	
-//	    	
-//	    },function (error){
-//	    	deferred.reject(error);
-//	    });
-//	    
-//	    return deferred.promise;
-//	}
+	ajsbsFactory.login_nimble = function(user){
+		var deferred = $q.defer();
+		
+	    var url = UrlService.props.nimbleIdentityServiceUrl;
 
+	    var req = {
+	    	method: 'POST',
+			url: url,
+			headers: {
+				'Content-Type': 'application/json',
+				'Accept': 'application/json'
+			},
+			data: user
+	    }
+		
+	    $http(req).then(function (success){
+	    	deferred.resolve(success);
+	    	
+	    },function (error){
+	    	deferred.reject(error);
+	    });
+	
+	    return deferred.promise;
+	}
 	
 	return ajsbsFactory;
  }]);
@@ -118,8 +106,7 @@ angular.module('nimsys').service('Session', function(){
 		this.roleCode = null;
 	};
 
-     return this;
-
+    return this;
 });
 
 
@@ -130,11 +117,10 @@ angular.module('nimsys').factory('AuthService',['$http', 'Session', '$rootScope'
 	authService.redirect = true;
 
 	authService.logout = function(){
-
 		var token = Session.id;
 		Session.destroy();
 		
-		var url = UrlService.root + "/rest/logout";
+		var url = UrlService.props.root + "/rest/logout";
 
 		var req = {
 			method: 'POST',
@@ -148,27 +134,19 @@ angular.module('nimsys').factory('AuthService',['$http', 'Session', '$rootScope'
 		$http(req).then(function (success){
 
 		},function (error){
-
 		});
-
 	}
 
 	authService.isAdmin = function(){
-	
 		return !!Session.id && (Session.roleCode === USER_ROLES.admin || Session.roleCode === USER_ROLES.superAdmin);
 	}
 
 	authService.isAuthenticated = function(){
-		
-//		return !!Session.id;
-		
 		$rootScope.user = $localStorage.user;
-//		alert("estamos en isAuthenticated y username = " + $rootScope.user.username);
 		return !!$rootScope.user.username;
 	}
 
 	authService.isAuthorized = function(authorizedRoles){
-	
 		if(!angular.isArray(authorizedRoles)){
 			authorizedRoles = [authorizedRoles];
 		}
@@ -178,7 +156,6 @@ angular.module('nimsys').factory('AuthService',['$http', 'Session', '$rootScope'
 				authorizedRoles.indexOf($rootScope.user.roleCode) !== -1);
 	};
 	
-
 	return authService;
 
 }]);

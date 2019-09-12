@@ -20,7 +20,7 @@ angular.module('nimsys').controller('UserCtrl', ['$scope','loginFactory','$rootS
 		var username = $rootScope.user.username;
 		var password = $rootScope.user.password;
 		
-		var url = UrlService.root + "/rest/user/get/" + username;
+		var url = UrlService.props.root + "/rest/user/get/" + username;
 		
 //		$http.defaults.useXDomain = true;
 		
@@ -32,7 +32,8 @@ angular.module('nimsys').controller('UserCtrl', ['$scope','loginFactory','$rootS
 //				'Authorization': 'Bearer ' + $rootScope.user.token
 //			},
 			params: {
-				'aToken': 'Bearer ' + $rootScope.user.token
+				'aToken': 'Bearer ' + $rootScope.user.token,
+				'authMode': UrlService.props.authMode
 			}
 		}
 		
@@ -48,7 +49,7 @@ angular.module('nimsys').controller('UserCtrl', ['$scope','loginFactory','$rootS
 
     	},function (error){
     		if (error.data != null)    		
-    			$scope.msg = error.data.message;
+    			$scope.msg = error.data.description;
     		else 
     			$scope.msg = error.message;
     		$('#alert-success').hide();
@@ -64,7 +65,7 @@ angular.module('nimsys').controller('UserCtrl', ['$scope','loginFactory','$rootS
 		var username = $rootScope.user.username;
 		var password = $rootScope.user.password;
 		
-		var url = UrlService.root + "/rest/user/post/" + username;
+		var url = UrlService.props.root + "/rest/user/post/" + username;
 
 		var data = {
 			firstname : $scope.user.firstname,
@@ -81,7 +82,8 @@ angular.module('nimsys').controller('UserCtrl', ['$scope','loginFactory','$rootS
 			},
 			params: {
 				'aToken': 'Bearer ' + $rootScope.user.token,
-				'password': password
+				'password': password,
+				'authMode': UrlService.props.authMode
 			},
 			data: data
 		}
@@ -91,7 +93,7 @@ angular.module('nimsys').controller('UserCtrl', ['$scope','loginFactory','$rootS
     		$('#alert-success').show();
     		$('#alert-error').hide();
     	},function (error){
-    		$scope.msg = error.data.message;
+    		$scope.msg = error.data.description;
     		$('#alert-success').hide();
     		$('#alert-error').show();
     	});

@@ -298,9 +298,8 @@ angular.module('nimsys', ['ui.router', 'ngStorage', 'ngMaterial', 'ngMessages', 
   $stateProvider
 	  .state('base', {abstract: true, url: '', templateUrl:'main.html', controller:'MainCtrl' })
 	  .state('login', {parent:'base', url: '/login', templateUrl:'login.html', controller:'LoginCtrl' })
-	  .state('admin', {parent:'base', url: '/admin', templateUrl:'admin.html', controller:'AdminCtrl', data: {authorizedRoles: [USER_ROLES.superAdmin, USER_ROLES.admin]}})
 	  
-	  .state('normal',{parent:'base', url: '/normal', templateUrl:'user.html', controller:'UserCtrl', data: {authorizedRoles: [USER_ROLES.superAdmin, USER_ROLES.admin, USER_ROLES.normal]}})
+//	  .state('admin', {parent:'base', url: '/admin', templateUrl:'admin.html', controller:'AdminCtrl', data: {authorizedRoles: [USER_ROLES.superAdmin, USER_ROLES.admin]}})
 //	  .state('normal',{parent:'base', url: '/normal', templateUrl:'normal.html', controller:'NormalCtrl', data: {authorizedRoles: [USER_ROLES.superAdmin, USER_ROLES.admin, USER_ROLES.normal]}})
 	  
 	  .state('user', {parent:'base', url: '/user', templateUrl:'user.html', controller:'UserCtrl', data: {authorizedRoles: [USER_ROLES.superAdmin, USER_ROLES.admin, USER_ROLES.normal]}})

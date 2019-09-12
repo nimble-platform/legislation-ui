@@ -25,7 +25,11 @@ angular.module('nimsys').controller('MainCtrl', ['$scope', '$rootScope', '$locat
     	$scope.currentUser = user;
     	$rootScope.currentUser = user;
     
-    	$location.path(p)
+    	/*
+    	 * Redirect to search after login, instead of page depending role
+    	 */
+    	//$location.path(p)
+    	$location.path('search');
     }else
       alert('Unable to Log You In :(');
   };

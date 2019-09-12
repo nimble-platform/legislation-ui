@@ -34,7 +34,7 @@ angular.module('nimsys').controller('DocDetailsCtrl',
 		var docType = $scope.selectedDocumentType;
 		var attrList = $scope.fillAttrbsToRetrieve(docType);
 
-		var url = UrlService.root + "/rest/document/get/" + idDoc + "/" + attrList;
+		var url = UrlService.props.root + "/rest/document/get/" + idDoc + "/" + attrList;
 		
 		var req = {
 			method: 'GET',
@@ -43,7 +43,8 @@ angular.module('nimsys').controller('DocDetailsCtrl',
 //				'Authorization': 'Bearer ' + $scope.user.token
 //			},
 			params: {
-				'aToken': 'Bearer ' + $scope.user.token
+				'aToken': 'Bearer ' + $scope.user.token,
+				'authMode': UrlService.props.authMode
 			}
 		}
 		
@@ -63,7 +64,7 @@ angular.module('nimsys').controller('DocDetailsCtrl',
 
     	},function (error){
     		if (error.data != null)
-    			$scope.msg = error.data.message;
+    			$scope.msg = error.data.description;
     		else 
     			$scope.msg = error.message;
     		

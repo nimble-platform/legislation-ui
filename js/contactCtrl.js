@@ -7,13 +7,11 @@ angular.module('nimsys').controller('ContactCtrl', ['$scope','$rootScope','$loca
 	$rootScope.sLan = localStorage.getItem('nimsysLan');
 	
 	$scope.init = function () {
-		
 	};
 	
 	
 	$scope.$on('$viewContentLoaded', function(){
 		$('#wrapper').localize();
 	});
-	
 
 }]);
