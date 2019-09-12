@@ -35,14 +35,14 @@
  					<i class="fa fa-unlock"></i> <span data-i18n="menu.searchdocument">Search</span>
 				</a>
 			</li>
-			
+
 			<!-- USER -->
-			<li ng-if="user.token==undefined" class="nav-item dropdown disabled">
+			<li ng-if="user.token==undefined || user.authMode=='nimble'" class="nav-item dropdown disabled">
 				<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
  					<i class="fa fa-edit"></i> <span data-i18n="menu.user">User</span>
 				</a>
 			</li>
-			<li ng-if="user.token!==undefined" class="nav-item dropdown active">
+			<li ng-if="user.token!==undefined && user.authMode!=='nimble'" class="nav-item dropdown active">
 				<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
  					<i class="fa fa-edit"></i> <span data-i18n="menu.user">User</span>
 				</a>
@@ -97,8 +97,13 @@
 <!--   			</div> -->
 <!-- 		</div> -->
 
-
-
+	<div ng-if="user.authMode!==undefined" class="navbar-collapse collapse" id="navbarNavAltMarkup">
+		<ul class="nav navbar-nav mr-auto">
+			<li class="nav-item disabled">
+				<i>Auth. mode: <b>{{user.authMode}}</b></i>
+			</li>
+		</ul>
+	</div>
 
  	<a class="navbar-brand active">
 		<img alt="" class="d-inline-block align-mid" id="nav-logo" src="img/aidimme_logo_white.png" height="15">
